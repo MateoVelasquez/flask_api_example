@@ -1,8 +1,7 @@
 """Modulo Films Routers
 
 También se conoce como recursos.
-Lo último que queda por implementar en referencia al API son los recursos.
-Como hemos visto en la introducción, toda API REST se basa en acceder y/o manipular recursos.
+Toda API REST se basa en acceder y/o manipular recursos.
 Para ello, las APIs utilizan el protocolo HTTP y alguno de sus verbos.
 Generalmente, los verbos más utilizados en un API REST son los siguientes::
 
@@ -13,32 +12,31 @@ Generalmente, los verbos más utilizados en un API REST son los siguientes::
 
 Para implementar los recursos en Flask haremos uso de la extensión Flask-Restful. Otra forma puede
 ser usar Flask puro definiendo rutas para los endpoints. Tener en cuenta:
-
-    -Flask RESTFUL si el proyecto tiene fechas de entrega cortas y se necesita tener un MVP
-     corriendo pronto.
-    -Si el proyecto es pequeño en alcance y tamaño entonces Flask puro podría servir.
+Flask-Restful si el proyecto tiene fechas de entrega cortas y se necesita tener un MVP
+corriendo pronto.
+Si el proyecto es pequeño en alcance y tamaño entonces Flask puro podría servir.
 
 En Flask-Restful un recurso no es más que una clase asociada a un endpoint (la URL mediante la que
 se expone el recurso) que define cómo se puede acceder y/o manipular dicho recurso.
 Para ello, solo hay que implementar los métodos correspondientes a cada uno de los verbos HTTP que
 se necesiten.
 
-Veámoslo en acción. En nuestro caso vamos a crear dos recursos diferentes::
+Veámoslo en acción. En nuestro caso vamos a crear dos recursos diferentes:
 
-    -Colección de películas: Este recurso es en realidad una colección.
-    Permitirá obtener el catálogo completo de películas y añadir una nueva al catálogo.
-    -Película: Este recurso obtendrá una película del catálogo a partir de su id.
+    - Colección de películas: Este recurso es en realidad una colección que permitirá obtener el
+      catálogo completo de películas y añadir una nueva al catálogo.
+    - Película: Este recurso obtendrá una película del catálogo a partir de su id.
 
-Pasos a seguir.
--Definir un Blueprint llamado films_blueprint. Siguiendo esta filosofía, podremos crear nuevos
-recursos en otros paquetes de la aplicación.
--Crear una instancia del Api a partir del blueprint anterior. Esta variable api es muy similar a un
-blueprint, solo que expone métodos propios de un Api de Flask-Restful.
--Crear una instancia del esquema FilmSchema.
--Definir el recurso FilmListResource asociado a la URL /api/films/.
-Todo recurso en Flask-Restful debe heredar de la clase Resource.
--Definir el recurso FilmResource asociado a la URL /api/films/<film_id>.
-film_id será un parámetro que se defina en cada uno de los métodos del recurso.
+**Pasos a seguir**:
+    - Definir un Blueprint llamado films_bp. Siguiendo esta filosofía, podremos crear nuevos
+      recursos en otros paquetes de la aplicación.
+    - Crear una instancia del Api a partir del blueprint anterior. Esta variable api es muy similar
+      a un blueprint, solo que expone métodos propios de un Api de Flask-Restful.
+    - Crear una instancia del esquema FilmSchema.
+    - Definir el recurso FilmListResource asociado a la URL /api/films/.
+      Todo recurso en Flask-Restful debe heredar de la clase Resource.
+    - Definir el recurso FilmResource asociado a la URL /api/films/<film_id>.
+      film_id será un parámetro que se defina en cada uno de los métodos del recurso.
 """
 from flask import request, Blueprint
 from flask_restful import Api, Resource
@@ -98,6 +96,10 @@ class FilmListResource(Resource):
 
 class FilmResource(Resource):
     def get(self, film_id):
+        """Método GET
+
+        Obtiene información de película a partir de su id.
+        """
         film = Film.get_by_id(film_id)
         if film is None:
             raise ObjectNotFound('La película no existe')

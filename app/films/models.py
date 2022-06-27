@@ -1,6 +1,8 @@
 """Módulo Films models.
 
 Contiene la definición de las objetos de información en base de datos.
+Cada una de las clases representa un objeto en la base de datos y heredan los métodos
+definidos en BaseModelMixin.
 """
 from app.database import db, BaseModelMixin
 
@@ -8,7 +10,8 @@ from app.database import db, BaseModelMixin
 class Film(db.Model, BaseModelMixin):
     """Objeto Películas
 
-    Información sobre el objeto películas y sus atributos.
+    Información sobre el objeto películas y sus atributos::
+
         id: Clave primaria.
         title: Titulo de la película.
         length: Duración de la película.
@@ -41,7 +44,8 @@ class Film(db.Model, BaseModelMixin):
 class Actor(db.Model, BaseModelMixin):
     """Objeto actores.
 
-    Información sobre el objeto actores y sus atributos.
+    Información sobre el objeto actores y sus atributos::
+
         id: Clave primaria.
         name: Titulo de la película.
         film_id: Clave foránea, película en la que aparece.

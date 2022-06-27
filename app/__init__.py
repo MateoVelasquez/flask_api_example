@@ -16,6 +16,11 @@ from .ext import ma, migrate
 
 
 def create_app(settings_module):
+    """Crear aplicación
+
+    Contiene las funciones necesarias para crear la aplicación.
+    Recibe como parámetro una configuración de entorno.
+    """
     app = Flask(__name__)
     app.config.from_object(settings_module)
 
@@ -39,6 +44,10 @@ def create_app(settings_module):
 
 
 def register_error_handlers(app):
+    """Registro de errores.
+
+    Interpreta las excepciones y los registra a nivel de aplicación.
+    """
     @app.errorhandler(Exception)
     def handle_exception_error(e):
         return jsonify({'msg': 'Internal server error'}), 500

@@ -1,7 +1,6 @@
 """Modulo Films Schemas
 
-Una vez que hemos creado la instancias de las extensiones y definido los modelos, el siguiente paso
-consiste en crear los esquemas. Para definir los esquemas utilizaremos Flask-Marshmallow.
+Para definir los esquemas utilizaremos Flask-Marshmallow.
 Un esquema es una clase que define cómo se serializa un modelo/recurso consumido por el API a JSON.
 
 Los esquemas se definen de manera muy similar a los modelos, solo que, para los campos,
@@ -25,6 +24,8 @@ from app.ext import ma
 
 
 class FilmSchema(ma.Schema):
+    """Esquema de películas
+    """
     id = fields.Integer(dump_only=True)
     title = fields.String()
     length = fields.Integer()
@@ -34,5 +35,7 @@ class FilmSchema(ma.Schema):
 
 
 class ActorSchema(ma.Schema):
+    """Esquema de actores
+    """
     id = fields.Integer(dump_only=True)
     name = fields.String()
