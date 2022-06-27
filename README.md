@@ -90,7 +90,7 @@ Algunos endpoints de interés:
 
 Este aplicativo se realizó usando el Framework Flask para Python
 
-* [flask](https://flask.palletsprojects.com/en/2.1.x/) - El framework web usado.
+* [flask](https://flask.palletsprojects.com/en/2.1.x/)
 
 
 

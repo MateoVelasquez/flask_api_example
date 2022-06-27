@@ -9,10 +9,11 @@ Welcome to flask_api_example's documentation!
 .. toctree::
    :maxdepth: 3
    :caption: Contenido:
-
+   
+   readme.rst
+   projinfo.rst
    api/modules
-
-
+   addinfo.rst
 
 .. Indices and tables
    ==================

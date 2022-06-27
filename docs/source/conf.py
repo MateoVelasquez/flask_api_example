@@ -19,7 +19,7 @@ import app #noqa
 
 # -- Project information -----------------------------------------------------
 
-project = 'flask_api_example'
+project = 'Flask API Ejemplo'
 copyright = '2022, José Lozano, Mateo Velásquez'
 author = 'José Lozano, Mateo Velásquez'
 
@@ -47,7 +47,7 @@ autodoc_default_options = {
 
 master_doc = 'index'
 latex_documents = [
-    (master_doc, 'flask_api_example.tex', 'Documentación Flask API Example',
+    (master_doc, 'flask_api_example.tex', 'Documentación Flask API Ejemplo',
      author, 'manual'),
 ]
 
