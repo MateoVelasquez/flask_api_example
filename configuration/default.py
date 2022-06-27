@@ -6,7 +6,7 @@ Mas información: `https://j2logo.com/tutorial-flask-leccion-7-parametros-de-con
 Los parámetros de configuración son:
     - SECRET_KEY:
         Lo utilizan Flask y ciertas extensiones que manejan aspectos de seguridad.
-    - PROPAGATE_EXCEPTIONS: 
+    - PROPAGATE_EXCEPTIONS:
         Para propagar las excepciones y poder manejarlas a nivel de aplicación.
     - SQLALCHEMY_DATABASE_URI:
         URI de la base de datos.
